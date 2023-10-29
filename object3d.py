@@ -4,7 +4,8 @@ class Cube(VGroup):
     def __init__(self, vertices, **kwargs):
         super().__init__(**kwargs)
 
-        self.verticies = vertices
+        self.vertices = vertices
+        vertices = np.transpose(np.delete(vertices, -1, axis=0))
 
         faces = [
             [vertices[0], vertices[1], vertices[2], vertices[3]],
@@ -27,7 +28,5 @@ class Cube(VGroup):
         self.add(faces, edges)
 
     def get_transformed(self, transform_matrix):
-        vertices_copy = np.transpose(np.append(self.verticies, np.full((self.verticies.shape[0], 1), 1), axis=1))
-        new_vertices = np.transpose(np.dot(transform_matrix, vertices_copy))
-
-        return Cube(new_vertices[:, :-1])
+        new_vertices = np.dot(transform_matrix, self.vertices)
+        return Cube(new_vertices)

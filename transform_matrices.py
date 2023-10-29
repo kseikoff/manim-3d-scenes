@@ -1,15 +1,10 @@
 import numpy as np
-from math import cos, sin, degrees, pi
 
 default_vertices = np.array([
-        [-1, 1, 1],
-        [1, 1, 1],
-        [1, -1, 1],
-        [-1, -1, 1],
-        [-1, 1, -1],
-        [1, 1, -1],
-        [1, -1, -1],
-        [-1, -1, -1]
+    [-1,  1,  1, -1, -1,  1,  1, -1],
+    [1,  1, -1, -1,  1, 1, -1, -1],
+    [1,  1,  1,  1, -1, -1, -1, -1],
+    [1, 1, 1, 1, 1, 1, 1, 1]
 ])
 
 scale_matrix_A = np.array([
@@ -70,21 +65,21 @@ move_matrix_E = np.array([
 
 rotate_matrix_X_axis = np.array([
     [1, 0, 0, 0],
-    [0, cos(degrees(2*pi)), -sin(degrees(2*pi)), 0],
-    [0, sin(degrees(2*pi)), cos(degrees(2*pi)), 0],
+    [0, np.cos(np.pi / 4), -np.sin(np.pi / 4), 0],
+    [0, np.sin(np.pi / 4), np.cos(np.pi / 4), 0],
     [0, 0, 0, 1]
 ])
 
 rotate_matrix_Y_axis = np.array([
-    [cos(degrees(pi/2)), 0, sin(degrees(pi/2)), 0],
+    [np.cos(np.pi / 4), 0, np.sin(np.pi / 4), 0],
     [0, 1, 0, 0],
-    [-sin(degrees(pi/2)), 0, cos(degrees(pi/2)), 0],
+    [-np.sin(np.pi / 4), 0, np.cos(np.pi / 4), 0],
     [0, 0, 0, 1]
 ])
 
 rotate_matrix_Z_axis = np.array([
-    [cos(degrees(pi)), -sin(degrees(pi)), 0, 0],
-    [sin(degrees(pi)), cos(degrees(pi)), 0, 0],
+    [np.cos(np.pi / 4), -np.sin(np.pi / 4), 0, 0],
+    [np.sin(np.pi / 4), np.cos(np.pi / 4), 0, 0],
     [0, 0, 1, 0],
     [0, 0, 0, 1]
 ])
