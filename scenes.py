@@ -101,3 +101,24 @@ class CubeRotatingScene(ThreeDScene):
         self.wait(1)
 
         self.play(FadeOut(rotated_cube_Z), run_time=2)
+
+class CubeVerticeRotatingScene(ThreeDScene):
+    def construct(self):
+        add_axes_to_scene(self, phi=60, theta=45)
+
+        original_cube = Cube(default_vertices*0.5)
+
+        self.play(FadeIn(original_cube), run_time=2)
+        self.wait(1)
+
+        temp_1 = np.dot(inversed_translation_matrix_v_1_1_1, rotate_matrix_Z_axis)
+        temp_2 = np.dot(temp_1, rotate_matrix_Y_axis)
+        temp_3 = np.dot(temp_2, rotate_matrix_X_axis)
+        transformation_matrix = np.dot(temp_3, translation_matrix_v_1_1_1)
+
+        vertice_rotated_cube = original_cube.copy().get_transformed(transformation_matrix)
+
+        self.play(ReplacementTransform(original_cube, vertice_rotated_cube), run_time=2)
+        self.wait(1)
+
+        self.play(FadeOut(vertice_rotated_cube), run_time=2)

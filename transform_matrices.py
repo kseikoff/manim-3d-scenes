@@ -83,3 +83,17 @@ rotate_matrix_Z_axis = np.array([
     [0, 0, 1, 0],
     [0, 0, 0, 1]
 ])
+
+translation_matrix_v_1_1_1 = np.array([
+    [1, 0, 0, -1],
+    [0, 1, 0, -1],
+    [0, 0, 1, -1],
+    [0, 0, 0, 1]
+])
+
+inversed_translation_matrix_v_1_1_1 = np.array([
+    [1, 0, 0, 1],
+    [0, 1, 0, 1],
+    [0, 0, 1, 1],
+    [0, 0, 0, 1]
+])
