@@ -28,37 +28,37 @@ scale_matrix_C = np.array([
     [0, 0, 0, 0.7]
 ])
 
-move_matrix_A = np.array([
-    [1, 0, 0, 2],
+translation_matrix_A = np.array([
+    [1, 0, 0, 3],
     [0, 1, 0, 0],
     [0, 0, 1, 0],
     [0, 0, 0, 1]
 ])
 
-move_matrix_B = np.array([
-    [1, 0, 0, -1.5],
-    [0, 1, 0, -2],
+translation_matrix_B = np.array([
+    [1, 0, 0, -2.5],
+    [0, 1, 0, -3.5],
     [0, 0, 1, 0],
     [0, 0, 0, 1]
 ])
 
-move_matrix_C = np.array([
-    [1, 0, 0, -1.5],
-    [0, 1, 0, 1],
-    [0, 0, 1, 1.5],
+translation_matrix_C = np.array([
+    [1, 0, 0, -2],
+    [0, 1, 0, 2.5],
+    [0, 0, 1, 2.5],
     [0, 0, 0, 1]
 ])
 
-move_matrix_D = np.array([
-    [1, 0, 0, -1.5],
-    [0, 1, 0, 1.5],
-    [0, 0, 1, -1],
+translation_matrix_D = np.array([
+    [1, 0, 0, -3],
+    [0, 1, 0, 2.5],
+    [0, 0, 1, -4],
     [0, 0, 0, 1]
 ])
 
-move_matrix_E = np.array([
-    [1, 0, 0, 3.5],
-    [0, 1, 0, 0.5],
+translation_matrix_E = np.array([
+    [1, 0, 0, 5],
+    [0, 1, 0, -0.5],
     [0, 0, 1, -1.5],
     [0, 0, 0, 1]
 ])
