@@ -27,7 +27,7 @@ class Cube(VGroup):
         self.add(faces, edges)
 
     def get_transformed(self, transform_matrix):
-        vertices_copy = np.append(self.verticies, np.full((self.verticies.shape[0], 1), 1), axis=1)
-        new_vertices = np.dot(vertices_copy, transform_matrix)
+        vertices_copy = np.transpose(np.append(self.verticies, np.full((self.verticies.shape[0], 1), 1), axis=1))
+        new_vertices = np.transpose(np.dot(transform_matrix, vertices_copy))
 
         return Cube(new_vertices[:, :-1])

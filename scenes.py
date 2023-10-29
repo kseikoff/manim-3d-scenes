@@ -75,3 +75,29 @@ class CubeMovingScene(ThreeDScene):
         self.wait(1)
 
         self.play(FadeOut(moved_cube_E), run_time=2)
+
+class CubeRotatingScene(ThreeDScene):
+    def construct(self):
+        add_axes_to_scene(self, phi=60, theta=45)
+
+        original_cube = Cube(default_vertices*0.5)
+
+        self.play(FadeIn(original_cube), run_time=2)
+        self.wait(1)
+
+        rotated_cube_X = original_cube.copy().get_transformed(rotate_matrix_X_axis)
+
+        self.play(ReplacementTransform(original_cube, rotated_cube_X), run_time=2)
+        self.wait(1)
+
+        rotated_cube_Y = rotated_cube_X.copy().get_transformed(rotate_matrix_Y_axis)
+
+        self.play(ReplacementTransform(rotated_cube_X, rotated_cube_Y), run_time=2)
+        self.wait(1)
+
+        rotated_cube_Z = rotated_cube_Y.copy().get_transformed(rotate_matrix_Z_axis)
+
+        self.play(ReplacementTransform(rotated_cube_Y, rotated_cube_Z), run_time=2)
+        self.wait(1)
+
+        self.play(FadeOut(rotated_cube_Z), run_time=2)
